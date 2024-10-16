@@ -1,10 +1,10 @@
 package model;
 
 public class Libro {
-	public String isbn, autore, titolo;  
+	private String isbn, autore, titolo;  
 	public boolean stato; // TRUE = disponibile , FALSE = in prestito.
 	
-	public Libro(String is, String a, String t ) {
+	public Libro(String a, String is, String t ) {
 		this.autore = a;
 		this.isbn = is;
 		this.titolo = t;
