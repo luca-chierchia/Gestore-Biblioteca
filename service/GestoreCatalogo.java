@@ -8,19 +8,16 @@ import errorGestoreBiblioteca.*;
 */
 public class GestoreCatalogo {
 	private List<Libro> catalogo;
-	private int dimensioneCatalogo = 0;
+	
 	
 	public GestoreCatalogo() {
 		this.catalogo = new ArrayList<Libro>();
 	}
 	
-	public int getDimensioneCatalogo() {
-		return this.dimensioneCatalogo;
-	}
 	
 	public void aggiungiLibro(Libro l) {
 		this.catalogo.add(l);
-		this.dimensioneCatalogo++;
+		
 		System.out.println(l.getTitolo() + ", aggiunto.");
 	}
 	
@@ -52,10 +49,13 @@ public class GestoreCatalogo {
 			Libro libro = it.next();
 			if(libro.getIsbn().equals(s)) {
 				it.remove();
-				this.dimensioneCatalogo--;
 				return true;
 			}
 		}
 		return false;
+	}
+	
+	public int dimCatalogo() {
+		return this.catalogo.size();
 	}
 }

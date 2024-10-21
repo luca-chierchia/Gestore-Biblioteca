@@ -10,7 +10,7 @@ public class Prestito {
 		this.u = u;
 		this.l = l;
 		this.dataPrestito = d.now();
-		this.dataRestituzione = null;
+		this.dataRestituzione = LocalDate.now().plusWeeks(2);
 		this.l.cambiaStato();
 	}
 
@@ -46,9 +46,8 @@ public class Prestito {
 		this.dataRestituzione = dataRestituzione;
 	}
 	
-	public void restituisciLibro(LocalDate dataRestituzione) {
-	    this.dataRestituzione = dataRestituzione;
-	    this.l.cambiaStato(); // Cambia lo stato del libro a "disponibile"
+	public void rinnovoPrestito() {
+		//TODO
 	}
 	
 	public String toString() {

@@ -16,7 +16,7 @@ public class Main {
 		Prestito p = new Prestito(new Utente("Massimo", "Troisi"),l1, d);
 		GestoreCatalogo catalogo = new GestoreCatalogo();
 		catalogo.aggiungiLibro(l3);
-		System.out.println(catalogo.getDimensioneCatalogo());
+		System.out.println(catalogo.dimCatalogo());
 		Libro libroCercato = catalogo.cercaLibroPerTitolo(str);
 		System.out.println(libroCercato.getAutore());
 		
