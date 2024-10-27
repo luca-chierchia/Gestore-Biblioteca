@@ -1,5 +1,6 @@
 package service;
 import model.*;
+import java.time.*;
 import java.util.*;
 import service.*;
 import errorGestoreBiblioteca.*;
@@ -16,7 +17,7 @@ public class GestorePrestiti {
 		return this.prestiti.size();
 	}
 	
-	public void registraPrestito(Utente u, Libro l, GestoreUtenti gu, GestoreCatalogo gc)
+	public void registraPrestito(Utente user, Libro l, GestoreUtenti gu, GestoreCatalogo gc)
 			throws LibroNonTrovatoException,PrestitoNonDisponibileException {
 		
 		// Verifico se il libro è presente a catalogo
@@ -30,7 +31,14 @@ public class GestorePrestiti {
 		}
 		
 		// Verifico se l'utente è registrato per poter successivamente associare all'utente il prestito.
-		
+		Utente u = gu.cercaPerNome(user.getNome());
+		if( u == null)
+			System.out.println("Utente non trovato");
+		else {
+			Prestito p = new Prestito(u,l,LocalDate.now());
+			this.prestiti.add(p);
+			libroTrovato.cambiaStato();
+		}
 	} 
 	
 	public void registraRestituzione() {
