@@ -30,7 +30,7 @@ public class GestorePrestiti {
 		}
 		
 		// Verifico se l'utente è registrato per poter successivamente associare all'utente il prestito.
-		//TODO 
+		
 	} 
 	
 	public void registraRestituzione() {
